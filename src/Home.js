@@ -1,18 +1,21 @@
-const Home = () => {
+import { useState } from 'react'
 
-  const handleClick = (e) => {
-    console.log('click event', e)
+const Home = () => {
+  // let name = 'Max'
+  // array deconstructing to handle two values from useState useState => value, function to rerender
+  const [name,setName] = useState('max')
+  const [age, setAge] = useState(25)
+
+  const handleClick = () => {
+    setName('sergio')
+    setAge(34)
   }
-  // passing in a value
-  const handleClickAgain = (name, e) => {
-    console.log('Hello, ' + name, e.target)
-  }
+
   return (
     <div className="home">
       <h2>Homepage</h2>
+      <p>His name is { name } and he is { age } years old.</p>
       <button onClick={handleClick}>Click me</button>
-      <button onClick={(e) => handleClickAgain('mario', e)
-      }>Click me</button>
     </div>
   );
 }
